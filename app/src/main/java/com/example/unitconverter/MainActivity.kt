@@ -3,8 +3,16 @@ package com.example.unitconverter
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowDropDown
+import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -22,7 +30,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    UnitConverter()
                 }
             }
         }
@@ -30,17 +38,41 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+fun UnitConverter() {
+    Column {
+        // Here all the UI elements will be stacked below each other
+        Text("Unit Converter")
+        OutlinedTextField(value = "", onValueChange = {
+            //here goes what should happen, when the Value of our OutlinedTextField changes.
+        })
+
+        Row {
+            // Here all the UI elements will be stacked next to each other
+            Box {
+                Button(onClick = { /*TODO*/ }) {
+                    Text(text = "Select")
+                    Icon(
+                        Icons.Default.ArrowDropDown,
+                        contentDescription = "Arrow Down"
+                    )
+                }
+            }
+            Box {
+                Button(onClick = { /*TODO*/ }) {
+                    Text(text = "Select")
+                    Icon(
+                        Icons.Default.ArrowDropDown,
+                        contentDescription = "Arrow Down"
+                    )
+                }
+            }
+        }
+        Text(text = "Result: ")
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
-    UnitConverterTheme {
-        Greeting("Android")
-    }
+fun UnitConverterPreview() {
+    UnitConverter()
 }
